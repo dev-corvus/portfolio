@@ -34,10 +34,8 @@
     </header>
 
     <main>
-        <sectiom class="hero-section">
-            <h2>
-                hi, <span> life-long learner </span> here
-            </h2>
+        <sectiom class="hero-section" aria-labelledby="hero-section">
+            <h2>hi, <span> life-long learner </span> here </h2>
             <p>dev frontend & cybersecurity</p>
             <p>applying knowledge to meaningful projects that help building my future</p>
 
@@ -48,7 +46,9 @@
         </section>
 
 <!-- ------------------- ABOUT ----------------------  -->
-        <section class="about-section">
+        <section class="about-section" aria-labelledby="about-section">
+            <h2> it's me, corvus </h2>
+
             <p> kicking off my career as a frontend developer, creating sturdy and responsive interfaces, i'm also an enthusiast of cybersecurity, applying devsecops practices in my projects </p>
 
             <p> besides tech, my interests range from foreign languages, graphic to my <span> void </span> </p>
@@ -57,46 +57,48 @@
         </section>
         
 <!-- ------------------- PROJECTS ----------------------  -->
-        <section class="cards-section">
+        <div class="cards-section" aria-labelledby="projects-section">
+            <div>
+                <h2> projects that make me go <span> woooooow </span></h2>
+                <p> projects that helped develop my skills, having fun along the way <span> (with a sprinkle of burnout) </span></p>
+            </div>
+
             <ul>
-            <li>
-                <article>
-                    <div>
-                        <h3> powerpolis </h3>
-                        <p></p>
-                        <a href="#projects"></a>
-                    </div>
-                </article>
-            </li>
+                <li>
+                    <article>
+                        <div>
+                            <h3> powerpolis </h3>
+                            <p></p>
+                            <a href="#projects"></a>
+                        </div>
+                    </article>
+                </li>
 
-            <li>
-                <article>
-                    <div>
-                        <h3> transforme-se projects </h3>
-                        <p></p>
-                        <a href="#projects"></a>
-                    </div>
-                </article>
-            </li>
+                <li>
+                    <article>
+                        <div>
+                            <h3> transforme-se projects </h3>
+                            <p></p>
+                            <a href="#projects"></a>
+                        </div>
+                    </article>
+                </li>
 
-             <li>
-                <article>
-                    <div>
-                        <h3> menu (family business) </h3>
-                        <p></p>
-                        <a href="#projects"></a>
-                    </div>
-                </article>
-            </li>
-        </ul>
-        </section>
-        
+                <li>
+                    <article>
+                        <div>
+                            <h3> menu (family business) </h3>
+                            <p></p>
+                            <a href="#projects"></a>
+                        </div>
+                    </article>
+                </li>
+            </ul>
+        </div>    
  <!-- ------------------- CONTACT  ----------------------  -->
         <section class="contact-section" aria-labelledby="contact-title">
             <div>
-                <h2 id="contact-title">
-                tell me a <span> fun fact </span>
-                </h2>
+                <h2 id="contact-title"> tell me a <span> fun fact </span></h2>
                 <p> that could be either a project that will beat that 13yo indian kid or a random idea that’ll make me wanna stay up at 3 am coding it </p>
             </div>
             
@@ -120,7 +122,7 @@
     </main>
 
     <footer>
-        <p> &copy; 2026 dev corvus. all rights reserved </p>
+        <p> &copy; 2026 dev corvus | all rights reserved </p>
 
         <nav>
             <ul>
