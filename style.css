@@ -7,33 +7,49 @@
 }
 
 :root {
-/* ------------------- SPACING  ---------------------- */
-  --space-0: 0;
-  --space-1: 0.5rem;  /* 8px */
-  --space-2: 1rem;    /* 16px */
-  --space-3: 1.5rem;  /* 24px */
-  --space-4: 2rem;    /* 32px */
-  --space-5: 3rem;    /* 48px */
-  --space-6: 4rem;    /* 64px */
+/* ------------------- FONTS ---------------------- */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
 
-  /* Purpose-based spacing */
-  --page-padding: var(--space-3);
-  --section-padding: var(--space-5);
+  --font-size-caption: 0.8125rem; /* 13px */
+  --font-size-small: 0.9375rem;   /* 15px */
+  --font-size-control: 1rem;     /* 16px */
+  --font-size-body: 1.125rem;    /* 18px */
+  --font-size-project: 1.25rem;  /* 20px */
+  --font-size-heading: clamp(2.5rem, 5vw, 5rem);   /* 40px */
+
+/* ------------------- SPACING  ---------------------- */
+
+/* Shared scale for padding, margin, and gap */
+  --space-1: 0.5rem; /* 8px */
+  --space-2: 1rem;   /* 16px */
+  --space-3: 1.5rem; /* 24px */
+  --space-4: 2rem;   /* 32px */
+  --space-5: 3rem;   /* 48px */
+  --space-6: 4rem;   /* 64px */
+
+  /* Layout roles */
+  --page-gutter: var(--space-3);
+  --section-padding-block: var(--space-5);
   --section-gap: var(--space-6);
   --content-gap: var(--space-4);
+  --actions-gap: var(--space-2);
   --form-padding: var(--space-2);
-  --field-gap: var(--space-1);
+  --form-gap: var(--space-2);
+  --field-label-gap: var(--space-1);
+  --control-padding-inline: var(--space-2);
+  --section-margin: var(--space-2);
+  --form-margin: var(--space-1);
 
-  /* Border widths */
-  --border-none: 0;
-  --border-thin: 1px;
-  --border-focus: 2px;
+  /* Borders — separate from the spacing scale */
+  --border-width: 1px;
+  --focus-ring-width: 2px;
 
-  /* Corner radii */
+  /* Existing corner-radius hierarchy */
   --radius-button: 1.25rem; /* 20px */
   --radius-form: 1.5rem;    /* 24px */
-  --radius-card: 2rem;      /* 32px */
-
+  --radius-card: 2rem;     /* 32px */
 
 /* ------------------- COLOURS  ---------------------- */
   /* ==========================================================================
@@ -116,26 +132,26 @@ header, header ul{
 }
 
 header {
-   padding: var(--page-padding);
    background-color: var(--accent-active);
    position: sticky;
    top: 0;
+   padding: var(--section-padding-block);
 }
 
-img {
-   max-width: 100%;
+header img {
+   max-width: 6dvh;
 }
 
 /* a tag don't inherit by default */
 
 header ul {
-   gap: var(--content-gap);
+   gap: var(--actions-gap);
 }
 
 header ul li a { /* style li so the user doesn't have to click exactly on the text link */
-   font-size: 1.125rem;
+   font-size: var(--font-size-control);
    color: var(--text-primary);
-   font-weight: 500; /* medium */
+   font-weight: var(--font-weight-medium);
 }
 
 /* ------------------- HERO  ---------------------- */
@@ -145,13 +161,13 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
    justify-content: center;
    text-align: center;
    height: 90dvh;
-   padding: var(--page-padding);
+   padding: var(--control-padding-inline);
 }
 
 .hero-section h2 {
-   font-size: clamp(2.5rem, 5vw, 5rem); /* property: clamp(minimum, preferred, maximum); */
+   font-size: var(--font-size-heading); /* property: clamp(minimum, preferred, maximum); */
    color: var(--text-primary);
-   margin-bottom: 1rem;
+   margin-bottom: var(--form-margin);
 }
 
 .hero-section h2 span {
@@ -161,23 +177,69 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
    color: transparent;
 }
 
-.hero-section ul {
-      gap: 1rem;
-}
-
 .hero-section ul li a {
-   font-size: 1.125rem;
+   font-size: var(--font-size-control);
    color: var(--text-primary);
    font-weight: 500; /* medium */
 }
 
 .hero-section li {
    border: 1px solid white;
-   border-radius: 2rem;
-   padding: var(--form-padding);
-   margin-top: 1rem;
+   border-radius: var(--radius-button);
+   padding: var(--control-padding-inline);
 }
 
 .hero-section p {
    color: var(--text-muted);
+   font-size: var(--font-size-small);
+}
+
+.hero-section p, li {
+   margin-bottom: var(--form-margin);
+}
+
+/* ------------------- ABOUT  ---------------------- */
+
+.about-section {
+   display: flex;
+   flex-direction: column;
+   padding: var(--control-padding-inline);
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   height: 90dvh;
+}
+
+.about-section h2 {
+   font-size: var(--font-size-heading);
+   margin-bottom: var(--form-margin);
+}
+
+.about-section p {
+   color: var(--text-muted);
+   font-size: var(--font-size-small);
+   margin-bottom: var(--form-margin);
+}
+
+.about-section img {
+  width: 300px;           /* Set your desired size */
+  height: 300px;          /* Match width for a square */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  padding: var(--control-padding-inline);
+}
+
+.about-section h2 span {
+   background-image: var(--gradient);
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent;
+}
+
+.about-section p span {
+   color: var(--text-primary);
+   border: 0.5px solid var(--text-primary);
+   border-radius: var(--radius-form);
+   padding: var(--space-1);
 }
