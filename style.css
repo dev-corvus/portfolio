@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+/* ------------------- SPACING  ---------------------- */
+  --space-0: 0;
+  --space-1: 0.5rem;  /* 8px */
+  --space-2: 1rem;    /* 16px */
+  --space-3: 1.5rem;  /* 24px */
+  --space-4: 2rem;    /* 32px */
+  --space-5: 3rem;    /* 48px */
+  --space-6: 4rem;    /* 64px */
+
+  /* Purpose-based spacing */
+  --page-padding: var(--space-3);
+  --section-padding: var(--space-5);
+  --section-gap: var(--space-6);
+  --content-gap: var(--space-4);
+  --form-padding: var(--space-2);
+  --field-gap: var(--space-1);
+
+  /* Border widths */
+  --border-none: 0;
+  --border-thin: 1px;
+  --border-focus: 2px;
+
+  /* Corner radii */
+  --radius-button: 1.25rem; /* 20px */
+  --radius-form: 1.5rem;    /* 24px */
+  --radius-card: 2rem;      /* 32px */
+
+
+/* ------------------- COLOURS  ---------------------- */
+  /* ==========================================================================
+     Surfaces & Backgrounds (Dark Mode Hierarchy)
+     ========================================================================== */
+     
+  /* Deepest canvas layer */
+  --bg-primary: #141B1E;
+
+  /* Cards, containers, modals */
+  --bg-surface: #1f292e;
+
+  /* Hover states, inputs, secondary blocks */
+  --bg-surface-elevated: #1C2529;
+
+  /* Borders, dividers, subtle outlines */
+  --border-subtle: #253338;
+  --border-strong: #374C54;
+
+  /* ==========================================================================
+     Brand & Accents (Teal Spectrum)
+     ========================================================================== */
+  /* Main CTA and interactive brand color */
+  --accent-primary: var(--blue-green);
+
+  /* Hover/focus state for buttons and links (brighter for contrast) */
+  --accent-hover: #5AB5B5;
+
+  /* Pressed or active states */
+  --accent-active: #358282;
+
+  /* Pill tags, subtle badge fills, icon backgrounds */
+  --accent-subtle: rgba(67, 160, 160, 0.14);
+  --accent-glow: rgba(67, 160, 160, 0.28);
+
+  /* Warm secondary accent (amber/sand) for status, callouts, or badges */
+  --accent-secondary: #E3A857;
+
+  /* gradient */
+  --gradient: linear-gradient(to right, var(--accent-hover), var(--text-secondary));
+
+  /* ==========================================================================
+     Typography & Text Hierarchy
+     ========================================================================== */
+  /* Headings & key UI text */
+  --text-primary: #FAF9F6;
+
+  /* Body text, descriptions, navigation links */
+  --text-secondary: #A0B0B5;
+
+  /* Metadata, timestamps, captions, disabled states */
+  --text-muted: #6B7D84;
+
+  /* Inverted text when sitting on solid --accent-primary buttons */
+  --text-on-accent: #081012;
+
+  /* ==========================================================================
+     Status & Utility
+     ========================================================================== */
+  --color-success: #38B000;
+  --color-warning: #FFB703;
+  --color-error:   #E63946;
+  --color-code-bg: #090E10;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header, header ul{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+header {
+   padding: var(--page-padding);
+   background-color: var(--accent-active);
+   position: sticky;
+   top: 0;
+}
+
+img {
+   max-width: 100%;
+}
+
+/* a tag don't inherit by default */
+
+header ul {
+   gap: var(--content-gap);
+}
+
+header ul li a { /* style li so the user doesn't have to click exactly on the text link */
+   font-size: 1.125rem;
+   color: var(--text-primary);
+   font-weight: 500; /* medium */
+}
+
+/* ------------------- HERO  ---------------------- */
+.hero-section {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+   height: 90dvh;
+   padding: var(--page-padding);
+}
+
+.hero-section h2 {
+   font-size: clamp(2.5rem, 5vw, 5rem); /* property: clamp(minimum, preferred, maximum); */
+   color: var(--text-primary);
+   margin-bottom: 1rem;
+}
+
+.hero-section h2 span {
+   background-image: var(--gradient);
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent;
+}
+
+.hero-section ul {
+      gap: 1rem;
+}
+
+.hero-section ul li a {
+   font-size: 1.125rem;
+   color: var(--text-primary);
+   font-weight: 500; /* medium */
+}
+
+.hero-section li {
+   border: 1px solid white;
+   border-radius: 2rem;
+   padding: var(--form-padding);
+   margin-top: 1rem;
+}
+
+.hero-section p {
+   color: var(--text-muted);
+}
