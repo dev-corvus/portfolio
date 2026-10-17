@@ -127,7 +127,7 @@ body::-webkit-scrollbar {
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier Prime", monospace;
 }
 
 main {
@@ -156,6 +156,7 @@ p {
    margin-bottom: var(--form-margin);
    line-height: 1.5;
    font-size: var(--font-size-body);
+   font-weight: var(--font-weight-regular);
 }
 
 .btn-primary, .btn-gradient {
@@ -169,6 +170,7 @@ p {
    border-radius: var(--radius-button);
    font-weight: var(--font-weight-bold);
    font-size: var(--font-size-control);
+   border: 1px solid white;
 }
 
 .btn-primary {
@@ -224,7 +226,7 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
 .hero-section ul li a {
    font-size: var(--font-size-control);
    color: var(--text-primary);
-   font-weight: 500; /* medium */
+   font-weight: var(--font-weight-bold);
 }
 
 .hero-section li {
@@ -232,6 +234,10 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
    border-radius: var(--radius-card);
    padding: var(--control-padding-inline);
    margin-bottom: var(--form-margin);
+   height: 3rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 /* ------------------- ABOUT  ---------------------- */
@@ -240,7 +246,7 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
    display: flex;
    flex-wrap: wrap; break into lines if they run out of space
 } */
-.about-section {
+.about-section, .contact-section {
    background-color: var(--bg-surface-elevated);
 }
 
@@ -301,4 +307,41 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
 
 .projects-section article > div {
   width: 100%;
+}
+
+/* ------------------- CONTACT  ---------------------- */
+
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
+form {
+   display: flex;
+   flex-direction: column;
+}
+
+label {
+   display: flex;
+   align-items: left;
+   padding: var(--form-padding);
+   font-size: var(--font-size-control);
+   color: var(--text-secondary);
+   font-weight: var(--font-weight-medium);
+}
+
+input, textarea {
+   padding: var(--form-padding);
+   border-radius: var(--radius-form);
+   border: 1px solid var(--border-strong);
+   margin-bottom: var(--form-margin);
+}
+
+input#name, input#email, input#phone, textarea#message  {
+   font-style: italic;
+}
+
+button {
+   margin-top: var(--form-margin);
 }
