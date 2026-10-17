@@ -12,10 +12,9 @@
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
-  --font-size-caption: 0.8125rem; /* 13px */
   --font-size-small: 0.9375rem;   /* 15px */
-  --font-size-control: 1rem;     /* 16px */
-  --font-size-body: 1.125rem;    /* 18px */
+  --font-size-control: 1.125rem;
+  --font-size-body: clamp(1.125rem, 3vw, 1.25rem);
   --font-size-project: 1.25rem;  /* 20px */
   --font-size-heading: clamp(2.5rem, 5vw, 5rem);   /* 40px */
 
@@ -23,7 +22,7 @@
 
 /* Shared scale for padding, margin, and gap */
   --space-1: 0.5rem; /* 8px */
-  --space-2: 1rem;   /* 16px */
+  --space-2: .5rem 1rem;   /* 16px */
   --space-3: 1.5rem; /* 24px */
   --space-4: 2rem;   /* 32px */
   --space-5: 3rem;   /* 48px */
@@ -57,13 +56,13 @@
      ========================================================================== */
      
   /* Deepest canvas layer */
-  --bg-primary: #141B1E;
+  --bg-primary: #1C2529;
 
   /* Cards, containers, modals */
   --bg-surface: #1f292e;
 
   /* Hover states, inputs, secondary blocks */
-  --bg-surface-elevated: #1C2529;
+  --bg-surface-elevated: #111416;
 
   /* Borders, dividers, subtle outlines */
   --border-subtle: #253338;
@@ -91,6 +90,8 @@
   /* gradient */
   --gradient: linear-gradient(to right, var(--accent-hover), var(--text-secondary));
 
+  /* overlay */
+  --overlay: #00000196;
   /* ==========================================================================
      Typography & Text Hierarchy
      ========================================================================== */
@@ -115,6 +116,10 @@
   --color-code-bg: #090E10;
 }
 
+html {
+    scroll-behavior: smooth !important;
+}
+
 body::-webkit-scrollbar {
     display: none;
 }
@@ -124,6 +129,67 @@ body {
     color: var(--text-primary);
     font-family: 'Courier New', Courier, monospace;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+}
+
+/* ------------------- GROUPED STYLES  ---------------------- */
+h2 {
+   font-size: var(--font-size-heading);
+   font-weight: var(--font-weight-bold);
+   margin-top: var(--section-gap);
+   color: var(--text-primary);
+}
+
+h2 span {
+   background-image: var(--gradient);
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent;
+}
+
+p {
+   color: var(--text-secondary);
+   margin-bottom: var(--form-margin);
+   line-height: 1.5;
+   font-size: var(--font-size-body);
+}
+
+.btn-primary, .btn-gradient {
+   color: var(--text-primary);
+   padding: var(--form-padding);
+   width: 100%;
+   height: 3rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: var(--radius-button);
+   font-weight: var(--font-weight-bold);
+   font-size: var(--font-size-control);
+}
+
+.btn-primary {
+   background-color: var(--accent-active);
+}
+
+.btn-gradient {
+   background: var(--gradient);
+}
+
+
+.hero-section, .about-section, .projects-section, .contact-section {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
+   padding: var(--control-padding-inline);
+   min-height: 90dvh;
+}
+
+/* ------------------- HEADER  ---------------------- */
 
 header, header ul{
    display: flex;
@@ -135,14 +201,12 @@ header {
    background-color: var(--accent-active);
    position: sticky;
    top: 0;
-   padding: var(--section-padding-block);
+   padding: var(--control-padding-inline);
 }
 
 header img {
    max-width: 6dvh;
 }
-
-/* a tag don't inherit by default */
 
 header ul {
    gap: var(--actions-gap);
@@ -150,32 +214,12 @@ header ul {
 
 header ul li a { /* style li so the user doesn't have to click exactly on the text link */
    font-size: var(--font-size-control);
-   color: var(--text-primary);
    font-weight: var(--font-weight-medium);
+   color: var(--text-primary);
 }
+
 
 /* ------------------- HERO  ---------------------- */
-.hero-section {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   text-align: center;
-   height: 90dvh;
-   padding: var(--control-padding-inline);
-}
-
-.hero-section h2 {
-   font-size: var(--font-size-heading); /* property: clamp(minimum, preferred, maximum); */
-   color: var(--text-primary);
-   margin-bottom: var(--form-margin);
-}
-
-.hero-section h2 span {
-   background-image: var(--gradient);
-   -webkit-background-clip: text;
-   background-clip: text;
-   color: transparent;
-}
 
 .hero-section ul li a {
    font-size: var(--font-size-control);
@@ -185,56 +229,27 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
 
 .hero-section li {
    border: 1px solid white;
-   border-radius: var(--radius-button);
+   border-radius: var(--radius-card);
    padding: var(--control-padding-inline);
-}
-
-.hero-section p {
-   color: var(--text-muted);
-   font-size: var(--font-size-small);
-}
-
-.hero-section p, li {
    margin-bottom: var(--form-margin);
 }
 
 /* ------------------- ABOUT  ---------------------- */
 
-.about-section {
+/* .about-section {
    display: flex;
-   flex-direction: column;
-   padding: var(--control-padding-inline);
-   justify-content: center;
-   align-items: center;
-   text-align: center;
-   height: 90dvh;
-}
-
-.about-section h2 {
-   font-size: var(--font-size-heading);
-   margin-bottom: var(--form-margin);
-}
-
-.about-section p {
-   color: var(--text-muted);
-   font-size: var(--font-size-small);
-   margin-bottom: var(--form-margin);
+   flex-wrap: wrap; break into lines if they run out of space
+} */
+.about-section {
+   background-color: var(--bg-surface-elevated);
 }
 
 .about-section img {
-  width: 300px;           /* Set your desired size */
-  height: 300px;          /* Match width for a square */
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  object-fit: cover; /* opposite of fill (max area) */
+  width: 100%;
+  height: 30rem;
   border-radius: var(--radius-card);
   padding: var(--control-padding-inline);
-}
-
-.about-section h2 span {
-   background-image: var(--gradient);
-   -webkit-background-clip: text;
-   background-clip: text;
-   color: transparent;
 }
 
 .about-section p span {
@@ -242,4 +257,48 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
    border: 0.5px solid var(--text-primary);
    border-radius: var(--radius-form);
    padding: var(--space-1);
+}
+
+/* ------------------- PROJECTS  ---------------------- */
+
+.projects-section li { /* projects cards */
+   margin-bottom: var(--space-3);
+   border-radius: var(--radius-card);
+   height: 25rem;
+   overflow: hidden;
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center;
+}
+
+.projects-section li:first-child {
+   background-image: url(./assets/images/logo-powerpolis.png);
+}
+
+.projects-section li:nth-child(2){ /* the second element of the list */
+   background-image: url(./assets/images/logo_transforme_se.png);
+}
+
+.projects-section li:nth-child(3){ /* the second element of the list */
+   background-image: url(./assets/images/logo-evs.png);
+}
+
+.projects-section article {
+   background-color: var(--overlay);
+   min-height: 25rem;
+   padding: var(--section-padding-block);
+   margin-bottom: var(--form-margin);
+   display: flex;
+   align-items: end;
+   text-align: left;
+}
+
+.projects-section article h3 {
+   font-size: var(--font-size-project);
+   font-weight: var(--font-weight-bold);
+   margin-bottom: var(--form-margin);
+}
+
+.projects-section article > div {
+  width: 100%;
 }
