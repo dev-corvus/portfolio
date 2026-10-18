@@ -130,11 +130,11 @@ body {
     font-family: "Courier Prime", monospace;
 }
 
-main {
+/* main {
   display: flex;
   flex-direction: column;
   gap: var(--section-gap);
-}
+} */
 
 /* ------------------- GROUPED STYLES  ---------------------- */
 h2 {
@@ -160,25 +160,33 @@ p {
 }
 
 .btn-primary, .btn-gradient {
-   color: var(--text-primary);
    padding: var(--form-padding);
    width: 100%;
    height: 3rem;
    display: flex;
    align-items: center;
    justify-content: center;
-   border-radius: var(--radius-button);
+   border-radius: var(--radius-form);
    font-weight: var(--font-weight-bold);
    font-size: var(--font-size-control);
-   border: 1px solid white;
+}
+
+a.btn-primary {
+   color: var(--text-muted);
 }
 
 .btn-primary {
-   background-color: var(--accent-active);
+   background-color: var(--text-primary);
+   border: 1px solid gray;
 }
 
 .btn-gradient {
    background: var(--gradient);
+   border: 1px solid white;
+}
+
+.btn-primary:hover {
+   background-color: var(--accent-hover);
 }
 
 
@@ -223,21 +231,16 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
 
 /* ------------------- HERO  ---------------------- */
 
-.hero-section ul li a {
-   font-size: var(--font-size-control);
+li.btn-gradient a {
    color: var(--text-primary);
-   font-weight: var(--font-weight-bold);
 }
 
-.hero-section li {
-   border: 1px solid white;
-   border-radius: var(--radius-card);
-   padding: var(--control-padding-inline);
+.hero-section li:first-child {
    margin-bottom: var(--form-margin);
-   height: 3rem;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+}
+
+.hero-section ul li:last-child a {
+  color: var(--text-secondary);
 }
 
 /* ------------------- ABOUT  ---------------------- */
@@ -256,6 +259,7 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
   height: 30rem;
   border-radius: var(--radius-card);
   padding: var(--control-padding-inline);
+  margin-bottom: var(--section-gap);
 }
 
 .about-section p span {
@@ -309,6 +313,10 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
   width: 100%;
 }
 
+.projects-section ul {
+   margin-bottom: var(--section-gap);
+}
+
 /* ------------------- CONTACT  ---------------------- */
 
 input,
@@ -345,3 +353,9 @@ input#name, input#email, input#phone, textarea#message  {
 button {
    margin-top: var(--form-margin);
 }
+
+button.btn-gradient {
+   color: var(--text-primary);
+}
+
+/* ------------------- FOOTER  ---------------------- */
