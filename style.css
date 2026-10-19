@@ -21,7 +21,7 @@
 /* ------------------- SPACING  ---------------------- */
 
 /* Shared scale for padding, margin, and gap */
-  --space-1: 0.5rem; /* 8px */
+  --space-1: .25rem; /* 8px */
   --space-2: .5rem 1rem;   /* 16px */
   --space-3: 1.5rem; /* 24px */
   --space-4: 2rem;   /* 32px */
@@ -40,6 +40,7 @@
   --control-padding-inline: var(--space-2);
   --section-margin: var(--space-2);
   --form-margin: var(--space-1);
+  --control-margin: 1rem;
 
   /* Borders — separate from the spacing scale */
   --border-width: 1px;
@@ -142,6 +143,7 @@ h2 {
    font-weight: var(--font-weight-bold);
    margin-top: var(--section-gap);
    color: var(--text-primary);
+   /* max-width: 20ch; */
 }
 
 h2 span {
@@ -157,6 +159,7 @@ p {
    line-height: 1.5;
    font-size: var(--font-size-body);
    font-weight: var(--font-weight-regular);
+   /* max-width: 38ch; */
 }
 
 .btn-primary, .btn-gradient {
@@ -231,6 +234,10 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
 
 /* ------------------- HERO  ---------------------- */
 
+.hero-section {
+   margin-bottom: var(--section-gap);
+}
+
 li.btn-gradient a {
    color: var(--text-primary);
 }
@@ -249,8 +256,10 @@ li.btn-gradient a {
    display: flex;
    flex-wrap: wrap; break into lines if they run out of space
 } */
+
 .about-section, .contact-section {
    background-color: var(--bg-surface-elevated);
+   margin-bottom: var(--section-gap);
 }
 
 .about-section img {
@@ -259,7 +268,6 @@ li.btn-gradient a {
   height: 30rem;
   border-radius: var(--radius-card);
   padding: var(--control-padding-inline);
-  margin-bottom: var(--section-gap);
 }
 
 .about-section p span {
@@ -270,6 +278,15 @@ li.btn-gradient a {
 }
 
 /* ------------------- PROJECTS  ---------------------- */
+.projects-section {
+   margin-bottom: var(--section-gap);
+}
+
+.projects-section p {
+   max-width: 50ch;
+   margin-left: auto;
+   margin-right: auto;
+}
 
 .projects-section li { /* projects cards */
    margin-bottom: var(--space-3);
@@ -294,13 +311,35 @@ li.btn-gradient a {
 }
 
 .projects-section article {
-   background-color: var(--overlay);
+   background: linear-gradient(0deg, #2b6163ee, #6B7D8466, rgba(255, 255, 255, 0.05));
+      /* #ffffffee (~93% opacity) – Strong and bright at the bottom/top where you want maximum emphasis.
+
+      #ffffff66 (~40% opacity) – A medium mid-tone transition.
+
+      #ffffff0d (~5% opacity) – Nearly transparent to blend seamlessly into your background.   min-height: 25rem; */
    min-height: 25rem;
    padding: var(--section-padding-block);
    margin-bottom: var(--form-margin);
    display: flex;
    align-items: end;
    text-align: left;
+}
+
+/* image opacity */
+.projects-section li {
+   position: relative;
+   isolation: isolate;
+}
+
+.projects-section li::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   background: rgba(28, 37, 41, 0.70);
+}
+
+.projects-section article {
+   position: relative;
 }
 
 .projects-section article h3 {
@@ -313,16 +352,19 @@ li.btn-gradient a {
   width: 100%;
 }
 
-.projects-section ul {
-   margin-bottom: var(--section-gap);
+/* ------------------- CONTACT  ---------------------- */
+form {
+   background-color: var(--bg-primary);
+   padding: var(--control-padding-inline);
+   border-radius: var(--radius-card);
 }
 
-/* ------------------- CONTACT  ---------------------- */
-
-input,
-textarea,
-button {
+form input,
+form textarea,
+form button {
   font-family: inherit;
+  border-radius: 1.25rem;
+  padding: .625rem 1rem;
 }
 
 form {
@@ -330,7 +372,7 @@ form {
    flex-direction: column;
 }
 
-label {
+form label {
    display: flex;
    align-items: left;
    padding: var(--form-padding);
@@ -340,10 +382,15 @@ label {
 }
 
 input, textarea {
-   padding: var(--form-padding);
-   border-radius: var(--radius-form);
    border: 1px solid var(--border-strong);
    margin-bottom: var(--form-margin);
+   height: 3rem;
+   background-color: var(--bg-surface-elevated);
+   border: none;
+}
+
+textarea {
+   height: 10rem;
 }
 
 input#name, input#email, input#phone, textarea#message  {
@@ -359,3 +406,56 @@ button.btn-gradient {
 }
 
 /* ------------------- FOOTER  ---------------------- */
+
+footer {
+   padding: var(--control-padding-inline);
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   gap: var(--form-gap);
+   align-items: center;
+   justify-content: center;
+   background-color: var(--accent-active);
+   color: var(--text-primary);
+}
+
+footer p {
+   color: var(--text-primary);
+}
+
+footer ul {
+   display: flex;
+   /* align-items: center;
+   justify-content: center; */
+   gap: var(--form-gap);
+}
+
+footer li a {
+   display: flex;
+   flex-direction: row-reverse;
+   color: var(--text-primary);
+   gap: 5px;
+   align-items: end;
+}
+
+/* ------------------- RESPONSIVE  ---------------------- */
+
+/* tablet */
+@media screen and (min-width:48rem) {
+   .hero-section ul {
+      flex-direction: row;
+      background-color: red;
+   }
+
+   .hero-section ul li {
+      width: 100%;
+   }
+
+   .about-section {
+      display: flex;
+      gap: var(--section-gap);
+      text-align: left;
+   }
+}
+
+/* desktop */
