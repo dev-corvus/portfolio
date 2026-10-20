@@ -131,12 +131,6 @@ body {
     font-family: "Courier Prime", monospace;
 }
 
-/* main {
-  display: flex;
-  flex-direction: column;
-  gap: var(--section-gap);
-} */
-
 /* ------------------- GROUPED STYLES  ---------------------- */
 h2 {
    font-size: var(--font-size-heading);
@@ -148,9 +142,15 @@ h2 {
 
 h2 span {
    background-image: var(--gradient);
+   background-size: 200% 200%;
+   background-position: 0% 50%;
    -webkit-background-clip: text;
    background-clip: text;
    color: transparent;
+
+   animation-name: gradient-animation;
+   animation-duration: 2s;
+   animation-iteration-count: infinite;
 }
 
 p {
@@ -169,9 +169,13 @@ p {
    display: flex;
    align-items: center;
    justify-content: center;
-   border-radius: var(--radius-form);
+   border-radius: var(--radius-button);
    font-weight: var(--font-weight-bold);
    font-size: var(--font-size-control);
+}
+
+.btn-primary:hover, .btn-gradient:hover {
+   border-radius: var(--radius-card);
 }
 
 a.btn-primary {
@@ -189,7 +193,7 @@ a.btn-primary {
 }
 
 .btn-primary:hover {
-   background-color: var(--accent-hover);
+   background-color: var(--text-primary);
 }
 
 
@@ -199,6 +203,8 @@ a.btn-primary {
    justify-content: center;
    text-align: center;
    padding: var(--control-padding-inline);
+   padding-bottom: var(--section-gap);
+   margin-bottom: 0;
    min-height: 90dvh;
 }
 
@@ -221,6 +227,12 @@ header img {
    max-width: 6dvh;
 }
 
+header li:hover {
+   border: 2px solid var(--text-muted);
+   border-radius: var(--radius-form);
+   padding: 0.5rem 1rem;
+}
+
 header ul {
    gap: var(--actions-gap);
 }
@@ -234,9 +246,18 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
 
 /* ------------------- HERO  ---------------------- */
 
-.hero-section {
-   margin-bottom: var(--section-gap);
-}
+/* .hero-section p {
+   max-width: 38ch;
+} */
+
+/* .hero-section ul {
+   width: 100%;
+   max-width: 38rem;
+} */
+/* .hero-section {
+   background-image: url(https://i.pinimg.com/originals/c5/9a/d2/c59ad2bd4ad2fbacd04017debc679ddb.gif);
+   opacity: 0.5;
+} */
 
 li.btn-gradient a {
    color: var(--text-primary);
@@ -250,6 +271,20 @@ li.btn-gradient a {
   color: var(--text-secondary);
 }
 
+.hero-section h2 {
+   animation: fadeInOut 1s ease-out both;
+}
+
+.hero-section p {
+   animation: fadeInOut 1s ease-out both;
+   animation-delay: 200ms;
+}
+
+.hero-section ul {
+   animation: fadeInOut 1s ease-out both;
+   animation-delay: 400ms;
+}
+
 /* ------------------- ABOUT  ---------------------- */
 
 /* .about-section {
@@ -259,7 +294,6 @@ li.btn-gradient a {
 
 .about-section, .contact-section {
    background-color: var(--bg-surface-elevated);
-   margin-bottom: var(--section-gap);
 }
 
 .about-section img {
@@ -278,9 +312,6 @@ li.btn-gradient a {
 }
 
 /* ------------------- PROJECTS  ---------------------- */
-.projects-section {
-   margin-bottom: var(--section-gap);
-}
 
 .projects-section p {
    max-width: 50ch;
@@ -399,10 +430,17 @@ input#name, input#email, input#phone, textarea#message  {
 
 button {
    margin-top: var(--form-margin);
+   cursor: pointer;
 }
 
 button.btn-gradient {
    color: var(--text-primary);
+}
+
+button:hover {
+   animation-name: gradient-animation;
+   animation-duration: 2s;
+   animation-iteration-count: infinite;
 }
 
 /* ------------------- FOOTER  ---------------------- */
@@ -443,8 +481,9 @@ footer li a {
 /* tablet */
 @media screen and (min-width:48rem) {
    .hero-section ul {
+      display: flex;
       flex-direction: row;
-      background-color: red;
+      gap: var(--form-gap);
    }
 
    .hero-section ul li {
@@ -453,9 +492,52 @@ footer li a {
 
    .about-section {
       display: flex;
+      flex-direction: row;
+      align-items: center;
       gap: var(--section-gap);
+      text-align: left;
+   }
+
+   .projects-section ul {
+      display: flex;
+      flex-direction: row;
+      gap: var(--form-gap);
+   }
+   .contact-section {
+      display: flex;
+      flex-direction: row;
+      gap: var(--form-gap);
       text-align: left;
    }
 }
 
+
 /* desktop */
+
+/* ------------------- ANIMATIONS  ---------------------- */
+
+@keyframes gradient-animation {
+   0% {
+      background-position: 0% 50%;
+   }
+
+   50% {
+      background-position: 100% 50%;
+   }
+
+   100% {
+      background-position: 0% 50%;
+   }
+}
+
+@keyframes fadeInOut {
+   from {
+      opacity: 0;
+      transform: translateY(30px);
+   }
+
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
