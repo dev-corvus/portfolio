@@ -152,6 +152,7 @@ header {
    background-color: var(--accent-primary);
    position: sticky;
    top: 0;
+   z-index: 10; /* higher stacking order */
    padding: var(--layout-padding);
 }
 
@@ -451,7 +452,8 @@ footer a:hover {
    }
 
    .contact-section form {
-      max-width: 30rem;
+      width: 30rem;
+      margin: auto;
    }
 
    .about-section > div,
@@ -473,10 +475,6 @@ footer a:hover {
       padding-inline: max(2rem, calc((100% - 80rem) / 2));
       gap: clamp(1.5rem, 3vw, 3rem);
    }
-   .hero-section, .about-section, .projects-section, .contact-section h2 {
-      font-size: var(--font-size-control);
-   }
-   
 
    .hero-section ul {
       display: flex;
@@ -506,8 +504,6 @@ footer a:hover {
    }
 }
 
-
-/* desktop */
 
 /* ------------------- ANIMATIONS  ---------------------- */
 
