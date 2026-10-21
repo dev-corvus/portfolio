@@ -140,6 +140,10 @@ a.btn-primary {
    min-height: 90dvh;
 }
 
+.about-section, .contact-section {
+   gap: clamp(1.5rem, 3vw, 3rem);
+}
+
 /* ------------------- HEADER  ---------------------- */
 
 header, header ul{
@@ -192,6 +196,12 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
    opacity: 0.5;
 } */
 
+.hero-section p:first-of-type {
+   color: var(--text-primary);
+   font-size: var(--font-size-project);
+   font-weight: var(--font-weight-bold);
+}
+
 li.btn-gradient a {
    color: var(--text-primary);
 }
@@ -240,8 +250,13 @@ li.btn-gradient a {
 .about-section p span {
    color: var(--text-primary);
    border: 0.5px solid var(--text-primary);
-   border-radius: var(--radius-pill);
+   border-radius: .2rem;
    padding: var(--space-1);
+   font-size: var(--font-size-small);
+
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
 }
 
 /* ------------------- PROJECTS  ---------------------- */
@@ -429,11 +444,19 @@ footer a:hover {
    .hero-section ul {
       display: flex;
       flex-direction: row;
-      gap: var(--content-gap);
+      gap: 1rem;
+      width: 100%;
+      max-width: 48rem;
+      margin-inline: auto;
    }
 
-   .hero-section ul li {
-      width: 100%;
+    .hero-section ul li {
+      flex: 1;
+      width: auto;
+   }
+
+   .hero-section ul li a {
+      white-space: nowrap;
    }
 
    .about-section {
@@ -473,7 +496,14 @@ footer a:hover {
    .hero-section, .about-section, .projects-section, .contact-section {
       padding-block: clamp(4rem, 8vh, 7rem);
       padding-inline: max(2rem, calc((100% - 80rem) / 2));
-      gap: clamp(1.5rem, 3vw, 3rem);
+   }
+
+   .hero-section h2, .about-section h2, .projects-section h2, .contact-section h2 {
+      margin-bottom: 2rem;
+   }
+
+   .hero-section p, .about-section p, .projects-section p, .contact-section p {
+      margin-bottom: 1.5rem;
    }
 
    .hero-section ul {
