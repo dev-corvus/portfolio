@@ -7,114 +7,46 @@
 }
 
 :root {
-/* ------------------- FONTS ---------------------- */
+  /* Typography */
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
 
-  --font-size-small: 0.9375rem;   /* 15px */
+  --font-size-small: 0.9375rem;
   --font-size-control: 1.125rem;
   --font-size-body: clamp(1.125rem, 3vw, 1.25rem);
-  --font-size-project: 1.25rem;  /* 20px */
-  --font-size-heading: clamp(2.5rem, 5vw, 5rem);   /* 40px */
+  --font-size-project: 1.25rem;
+  --font-size-heading: clamp(2.5rem, 5vw, 5rem);
 
-/* ------------------- SPACING  ---------------------- */
+  /* Spacing */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: 1.5rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
 
-/* Shared scale for padding, margin, and gap */
-  --space-1: .25rem; /* 8px */
-  --space-2: .5rem 1rem;   /* 16px */
-  --space-3: 1.5rem; /* 24px */
-  --space-4: 2rem;   /* 32px */
-  --space-5: 3rem;   /* 48px */
-  --space-6: 4rem;   /* 64px */
+  --section-spacing: var(--space-6);
+  --card-padding-block: var(--space-5);
+  --layout-padding: var(--space-2) 1rem;
+  --control-padding: var(--layout-padding);
+  --content-gap: var(--space-2) 1rem;
+  --actions-gap: var(--space-2) 1rem;
 
-  /* Layout roles */
-  --page-gutter: var(--space-3);
-  --section-padding-block: var(--space-5);
-  --section-gap: var(--space-6);
-  --content-gap: var(--space-4);
-  --actions-gap: var(--space-2);
-  --form-padding: var(--space-2);
-  --form-gap: var(--space-2);
-  --field-label-gap: var(--space-1);
-  --control-padding-inline: var(--space-2);
-  --section-margin: var(--space-2);
-  --form-margin: var(--space-1);
-  --control-margin: 1rem;
-
-  /* Borders — separate from the spacing scale */
+  /* Borders and corners */
   --border-width: 1px;
-  --focus-ring-width: 2px;
+  --radius-button: 1.25rem;
+  --radius-pill: 1.5rem;
+  --radius-card: 2rem;
 
-  /* Existing corner-radius hierarchy */
-  --radius-button: 1.25rem; /* 20px */
-  --radius-form: 1.5rem;    /* 24px */
-  --radius-card: 2rem;     /* 32px */
-
-/* ------------------- COLOURS  ---------------------- */
-  /* ==========================================================================
-     Surfaces & Backgrounds (Dark Mode Hierarchy)
-     ========================================================================== */
-     
-  /* Deepest canvas layer */
+  /* Colors */
   --bg-primary: #1C2529;
-
-  /* Cards, containers, modals */
-  --bg-surface: #1f292e;
-
-  /* Hover states, inputs, secondary blocks */
   --bg-surface-elevated: #111416;
-
-  /* Borders, dividers, subtle outlines */
-  --border-subtle: #253338;
-  --border-strong: #374C54;
-
-  /* ==========================================================================
-     Brand & Accents (Teal Spectrum)
-     ========================================================================== */
-  /* Main CTA and interactive brand color */
-  --accent-primary: var(--blue-green);
-
-  /* Hover/focus state for buttons and links (brighter for contrast) */
-  --accent-hover: #5AB5B5;
-
-  /* Pressed or active states */
-  --accent-active: #358282;
-
-  /* Pill tags, subtle badge fills, icon backgrounds */
-  --accent-subtle: rgba(67, 160, 160, 0.14);
-  --accent-glow: rgba(67, 160, 160, 0.28);
-
-  /* Warm secondary accent (amber/sand) for status, callouts, or badges */
-  --accent-secondary: #E3A857;
-
-  /* gradient */
-  --gradient: linear-gradient(to right, var(--accent-hover), var(--text-secondary));
-
-  /* overlay */
-  --overlay: #00000196;
-  /* ==========================================================================
-     Typography & Text Hierarchy
-     ========================================================================== */
-  /* Headings & key UI text */
+  --accent-primary: #358282;
+  --accent-gradient-start: #5AB5B5;
+  --gradient: linear-gradient(to right, var(--accent-gradient-start), var(--text-secondary));
   --text-primary: #FAF9F6;
-
-  /* Body text, descriptions, navigation links */
   --text-secondary: #A0B0B5;
-
-  /* Metadata, timestamps, captions, disabled states */
   --text-muted: #6B7D84;
-
-  /* Inverted text when sitting on solid --accent-primary buttons */
-  --text-on-accent: #081012;
-
-  /* ==========================================================================
-     Status & Utility
-     ========================================================================== */
-  --color-success: #38B000;
-  --color-warning: #FFB703;
-  --color-error:   #E63946;
-  --color-code-bg: #090E10;
 }
 
 html {
@@ -135,7 +67,7 @@ body {
 h2 {
    font-size: var(--font-size-heading);
    font-weight: var(--font-weight-bold);
-   margin-top: var(--section-gap);
+   margin-top: var(--section-spacing);
    color: var(--text-primary);
    /* max-width: 20ch; */
 }
@@ -155,7 +87,7 @@ h2 span {
 
 p {
    color: var(--text-secondary);
-   margin-bottom: var(--form-margin);
+   margin-bottom: var(--space-1);
    line-height: 1.5;
    font-size: var(--font-size-body);
    font-weight: var(--font-weight-regular);
@@ -163,7 +95,7 @@ p {
 }
 
 .btn-primary, .btn-gradient {
-   padding: var(--form-padding);
+   padding: var(--control-padding);
    width: 100%;
    height: 3rem;
    display: flex;
@@ -184,16 +116,16 @@ a.btn-primary {
 
 .btn-primary {
    background-color: var(--text-primary);
-   border: 1px solid gray;
+   border: var(--border-width) solid gray;
 }
 
 .btn-gradient {
    background: var(--gradient);
-   border: 1px solid white;
+   border: var(--border-width) solid white;
 }
 
 .btn-primary:hover {
-   background-color: var(--text-primary);
+   background-color: #F3F0E9;
 }
 
 
@@ -202,8 +134,8 @@ a.btn-primary {
    flex-direction: column;
    justify-content: center;
    text-align: center;
-   padding: var(--control-padding-inline);
-   padding-bottom: var(--section-gap);
+   padding: var(--layout-padding);
+   padding-bottom: var(--section-spacing);
    margin-bottom: 0;
    min-height: 90dvh;
 }
@@ -217,10 +149,10 @@ header, header ul{
 }
 
 header {
-   background-color: var(--accent-active);
+   background-color: var(--accent-primary);
    position: sticky;
    top: 0;
-   padding: var(--control-padding-inline);
+   padding: var(--layout-padding);
 }
 
 header img {
@@ -229,7 +161,7 @@ header img {
 
 header li:hover {
    border: 2px solid var(--text-muted);
-   border-radius: var(--radius-form);
+   border-radius: var(--radius-pill);
    padding: 0.5rem 1rem;
 }
 
@@ -264,11 +196,11 @@ li.btn-gradient a {
 }
 
 .hero-section li:first-child {
-   margin-bottom: var(--form-margin);
+   margin-bottom: var(--space-1);
 }
 
 .hero-section ul li:last-child a {
-  color: var(--text-secondary);
+  color: var(--text-muted);
 }
 
 .hero-section h2 {
@@ -301,13 +233,13 @@ li.btn-gradient a {
   width: 100%;
   height: 30rem;
   border-radius: var(--radius-card);
-  padding: var(--control-padding-inline);
+  padding: var(--layout-padding);
 }
 
 .about-section p span {
    color: var(--text-primary);
    border: 0.5px solid var(--text-primary);
-   border-radius: var(--radius-form);
+   border-radius: var(--radius-pill);
    padding: var(--space-1);
 }
 
@@ -349,8 +281,8 @@ li.btn-gradient a {
 
       #ffffff0d (~5% opacity) – Nearly transparent to blend seamlessly into your background.   min-height: 25rem; */
    min-height: 25rem;
-   padding: var(--section-padding-block);
-   margin-bottom: var(--form-margin);
+   padding: var(--card-padding-block);
+   margin-bottom: var(--space-1);
    display: flex;
    align-items: end;
    text-align: left;
@@ -376,17 +308,27 @@ li.btn-gradient a {
 .projects-section article h3 {
    font-size: var(--font-size-project);
    font-weight: var(--font-weight-bold);
-   margin-bottom: var(--form-margin);
+   margin-bottom: var(--space-1);
 }
 
 .projects-section article > div {
   width: 100%;
 }
 
+.projects-section h2 span {
+   display: inline-block;
+   animation: pulse-size 2s infinite ease-in-out;
+}
+
 /* ------------------- CONTACT  ---------------------- */
+.contact-section div {
+   max-width: 48ch;
+   margin: 1rem auto;
+}
+
 form {
    background-color: var(--bg-primary);
-   padding: var(--control-padding-inline);
+   padding: var(--layout-padding);
    border-radius: var(--radius-card);
 }
 
@@ -394,8 +336,8 @@ form input,
 form textarea,
 form button {
   font-family: inherit;
-  border-radius: 1.25rem;
-  padding: .625rem 1rem;
+  border-radius: var(--radius-button);
+  padding: var(--control-padding);
 }
 
 form {
@@ -406,16 +348,14 @@ form {
 form label {
    display: flex;
    align-items: left;
-   padding: var(--form-padding);
+   padding: var(--control-padding);
    font-size: var(--font-size-control);
    color: var(--text-secondary);
    font-weight: var(--font-weight-medium);
 }
 
 input, textarea {
-   border: 1px solid var(--border-strong);
-   margin-bottom: var(--form-margin);
-   height: 3rem;
+   margin-bottom: var(--space-1);
    background-color: var(--bg-surface-elevated);
    border: none;
 }
@@ -424,48 +364,48 @@ textarea {
    height: 10rem;
 }
 
+form input, form button {
+   height: 3rem;
+}
+
 input#name, input#email, input#phone, textarea#message  {
    font-style: italic;
 }
 
-button {
-   margin-top: var(--form-margin);
+form button {
+   margin-top: var(--space-1);
    cursor: pointer;
 }
 
 button.btn-gradient {
    color: var(--text-primary);
+   margin-top: var(--space-2);
+   margin-bottom: var(--space-2);
 }
-
-button:hover {
-   animation-name: gradient-animation;
-   animation-duration: 2s;
-   animation-iteration-count: infinite;
-}
-
 /* ------------------- FOOTER  ---------------------- */
 
 footer {
-   padding: var(--control-padding-inline);
+   padding: var(--layout-padding);
    display: flex;
    flex-direction: column;
    text-align: center;
-   gap: var(--form-gap);
+   gap: var(--content-gap);
    align-items: center;
    justify-content: center;
-   background-color: var(--accent-active);
+   background-color: var(--accent-primary);
    color: var(--text-primary);
 }
 
 footer p {
    color: var(--text-primary);
+   font-size: var(--font-size-small);
 }
 
 footer ul {
    display: flex;
    /* align-items: center;
    justify-content: center; */
-   gap: var(--form-gap);
+   gap: var(--content-gap);
 }
 
 footer li a {
@@ -474,6 +414,11 @@ footer li a {
    color: var(--text-primary);
    gap: 5px;
    align-items: end;
+   font-size: var(--font-size-small);
+}
+
+footer a:hover {
+   text-decoration: underline;
 }
 
 /* ------------------- RESPONSIVE  ---------------------- */
@@ -483,7 +428,7 @@ footer li a {
    .hero-section ul {
       display: flex;
       flex-direction: row;
-      gap: var(--form-gap);
+      gap: var(--content-gap);
    }
 
    .hero-section ul li {
@@ -494,19 +439,69 @@ footer li a {
       display: flex;
       flex-direction: row;
       align-items: center;
-      gap: var(--section-gap);
+      gap: var(--section-spacing);
       text-align: left;
    }
 
    .projects-section ul {
-      display: flex;
-      flex-direction: row;
-      gap: var(--form-gap);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--content-gap);
+      margin-top: var(--space-1);
    }
-   .contact-section {
+
+   .contact-section form {
+      max-width: 30rem;
+   }
+
+   .about-section > div,
+   .about-section img {
+      flex: 1 1 0;
+      min-width: 0;
+   }
+
+   .about-section img {
+      width: 50%;
+      padding: 0;
+   }
+}
+
+@media screen and (min-width: 75rem) {
+
+   .hero-section, .about-section, .projects-section, .contact-section {
+      padding-block: clamp(4rem, 8vh, 7rem);
+      padding-inline: max(2rem, calc((100% - 80rem) / 2));
+      gap: clamp(1.5rem, 3vw, 3rem);
+   }
+   .hero-section, .about-section, .projects-section, .contact-section h2 {
+      font-size: var(--font-size-control);
+   }
+   
+
+   .hero-section ul {
       display: flex;
       flex-direction: row;
-      gap: var(--form-gap);
+      gap: clamp(1rem, 2vw, 2rem);
+      margin-inline: auto;
+      max-width: 48rem;
+   }
+
+    .hero-section ul li {
+      flex: 1;
+      width: auto;
+   }
+
+   .projects-section ul {
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.5rem, 2vw, 2.5rem);
+   }
+
+   .contact-section {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+
+   .contact-section div {
       text-align: left;
    }
 }
@@ -540,4 +535,16 @@ footer li a {
       opacity: 1;
       transform: translateY(0);
    }
+}
+
+@keyframes pulse-size {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5); /* Increases size to 150% */
+  }
+  100% {
+    transform: scale(1);
+  }
 }
