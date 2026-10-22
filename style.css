@@ -110,6 +110,22 @@ p {
    border-radius: var(--radius-card);
 }
 
+button.btn-gradient:hover {
+   animation: slideInUp 0.5s ease-out both;
+   text-decoration: underline;
+}
+
+.btn-primary li a:hover {
+  animation: slideInUp 0.5s ease-out both;
+  text-decoration: underline;
+}
+
+li.btn-primary:hover > a,
+li.btn-gradient:hover > a {
+   animation: slideInUp 0.5s ease-out both;
+   text-decoration: underline;
+}
+
 a.btn-primary {
    color: var(--text-muted);
 }
@@ -279,14 +295,18 @@ li.btn-gradient a {
 
 .projects-section li:first-child {
    background-image: url(./assets/images/logo-powerpolis.png);
+   background-size: 22rem auto;
 }
 
 .projects-section li:nth-child(2){ /* the second element of the list */
-   background-image: url(./assets/images/logo_transforme_se.png);
+   background-image: url(./assets/images/logo-mydrugs.png);
+   background-size: 16rem auto; /* adjust 80px to the size you want */
+  /* background-position: center; */
 }
 
 .projects-section li:nth-child(3){ /* the second element of the list */
    background-image: url(./assets/images/logo-evs.png);
+   background-size: 20rem auto;
 }
 
 .projects-section article {
@@ -354,6 +374,7 @@ form button {
   font-family: inherit;
   border-radius: var(--radius-button);
   padding: var(--control-padding);
+  color: var(--text-primary);
 }
 
 form {
