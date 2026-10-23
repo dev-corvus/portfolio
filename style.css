@@ -106,28 +106,39 @@ p {
    font-size: var(--font-size-control);
 }
 
+li.btn-primary,
+li.btn-gradient,
+a.btn-primary,
+a.btn-gradient {
+   display: block;
+}
+
+li.btn-primary > a,
+li.btn-gradient > a,
+a.btn-primary,
+a.btn-gradient {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+}
+
 .btn-primary:hover, .btn-gradient:hover {
    border-radius: var(--radius-card);
 }
 
-button.btn-gradient:hover {
-   animation: slideInUp 0.5s ease-out both;
-   text-decoration: underline;
-}
-
-.btn-primary li a:hover {
-  animation: slideInUp 0.5s ease-out both;
-  text-decoration: underline;
-}
-
 li.btn-primary:hover > a,
-li.btn-gradient:hover > a {
-   animation: slideInUp 0.5s ease-out both;
+li.btn-gradient:hover > a,
+button.btn-gradient:hover > span,
+a.btn-primary:hover > span {
+   animation: slideInUp 0.2s ease-out both;
    text-decoration: underline;
 }
 
 a.btn-primary {
    color: var(--text-muted);
+   height: 3rem;
 }
 
 .btn-primary {
@@ -144,6 +155,28 @@ a.btn-primary {
    background-color: #F3F0E9;
 }
 
+.btn-primary:focus-visible, .btn-gradient:focus-visible {
+   outline: 2px solid orange ;
+   outline-offset: 4px;
+}
+
+li.btn-gradient:focus-within {
+   outline: 2px solid orange ;
+   outline-offset: 4px;
+}
+
+li.btn-primary:focus-within {
+   outline: 2px solid orange ;
+   outline-offset: 4px;
+}
+
+li.btn-gradient > a:focus-visible {
+   outline: none;
+}
+
+li.btn-primary > a:focus-visible {
+   outline: none;
+}
 
 .hero-section, .about-section, .projects-section, .contact-section {
    display: flex;
@@ -174,16 +207,11 @@ header {
    top: 0;
    z-index: 10; /* higher stacking order */
    padding: var(--layout-padding);
+   height: 4rem;
 }
 
 header img {
    max-width: 6dvh;
-}
-
-header li:hover {
-   border: 2px solid var(--text-muted);
-   border-radius: var(--radius-pill);
-   padding: 0.5rem 1rem;
 }
 
 header ul {
@@ -196,7 +224,15 @@ header ul li a { /* style li so the user doesn't have to click exactly on the te
    color: var(--text-primary);
 }
 
+header li:hover {
+   text-decoration: underline;
+}
 
+header a:focus-visible {
+   outline: 2px solid orange ;
+   outline-offset: 4px;
+   border-radius: var(--radius-pill);
+}
 /* ------------------- HERO  ---------------------- */
 
 /* .hero-section p {
@@ -419,6 +455,12 @@ button.btn-gradient {
    margin-top: var(--space-2);
    margin-bottom: var(--space-2);
 }
+
+input:focus-visible, textarea:focus-visible {
+  outline: 2px solid orange ;
+  outline-offset: 4px; /* Separates the ring from the element border */
+}
+
 /* ------------------- FOOTER  ---------------------- */
 
 footer {
@@ -456,6 +498,12 @@ footer li a {
 
 footer a:hover {
    text-decoration: underline;
+}
+
+footer a:focus-visible {
+   outline: 2px solid orange ;
+   outline-offset: 4px;
+   border-radius: var(--radius-pill);
 }
 
 /* ------------------- RESPONSIVE  ---------------------- */
@@ -580,6 +628,16 @@ footer a:hover {
 
    to {
       opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+@keyframes slideInUp {
+   from {
+      transform: translateY(0.25rem);
+   }
+
+   to {
       transform: translateY(0);
    }
 }
