@@ -1,132 +1,117 @@
-# README Authoring Guide & Fill-in Cheat Sheet
+<p align="center">
+  <a href="https://www.figma.com/design/cKmA01QadQI2HPQhdcaH5H/portifolio23?node-id=0-1&p=f&t=pVNOAur8NRrnLEsz-0">
+    <img src="https://shields.io/badge/figma-link-purple?logo=figma&logoColor=white" alt="Figma" />
+  </a>
+  <a href="https://dev-corvus.github.io/portfolio">
+    <img src="https://img.shields.io/badge/github_pages-deploy-blue?logo=github&logoColor=white" alt="GitHub Pages" />
+  </a>
+</p>
 
-Use this reference alongside your `README.md` template. Each section below breaks down what content belongs there, guiding questions to answer, and real-world examples comparing an **academic project** versus a **creative project**.
+<p align="center">
+  <a href="#">
+    <img src="https://shields.io/badge/HTML-%23E34F26.svg?logo=html5&logoColor=white" alt="HTML" />
+  </a>
+  <a href="#">
+    <img src="https://shields.io/badge/CSS-639?logo=css&logoColor=fff" alt="CSS" />
+  </a>
+</p>
 
----
-
-## 1. Title & Tagline
-
-### Purpose
-Introduce the project instantly to an external reader, hiring manager, or evaluator.
-
-### Guiding Questions
-* What is the project named, and what does it actually accomplish in plain language?
-* What domain does it belong to (e.g., computational linguistics, brand identity, interactive 3D web)?
-
-### Examples
-* **Academic:** 
-  > `# Sentiment Drift in Clinical Trial Summaries`  
-  > *A longitudinal NLP pipeline measuring framing shifts across open-access clinical trial abstracts between 2015 and 2024.*
-* **Creative:** 
-  > `# Solitude: Editorial Art Book & Visual Identity`  
-  > *A 64-page print monograph and digital exhibition exploring urban isolation through brutalist architectural photography and custom typography.*
+# <img src="./assets/images/logo-corvus.png" width="25" height="25"> Portfolio
+A responsive portfolio to showcase my skills and projects, developed as part of [Transforme-se](https://www.serasaexperian.com.br/transforme-se/).
 
 ---
 
-## 2. Visual Preview
+## <span style="display: flex; gap: 8px;"><img src="./assets/images/icons/image-icon.png"> Visual Preview
 
-### Purpose
-Provide immediate visual evidence of the final product. GitHub renders images at the top of the repository, making this critical for engagement.
+![Final Output Preview](./assets/images/hero-section-recording.gif)
 
-### What to Include
-* **Primary (Hero) Image:** The best overall screenshot, print mockup, dashboard view, or high-level architecture diagram.
-* **Secondary Side-by-Side Images:** Detail crops, mobile views, alternate design spreads, charts, or state comparisons (e.g., before vs. after).
+<p align="center">
+  <em>Figure 1: Full desktop layout of landing page.</em>
+</p>
 
-### Tips
-* Store images locally in an `assets/` or `docs/images/` directory inside the repo so links never break.
-* Use descriptive `alt` text and brief captions explaining what the figure proves or displays.
+<p align="center">
+   <img src="./assets/images/focus-states-mobile-recording.gif" width="48%" alt="Mobile responsive preview" />
+</p>
 
----
-
-## 3. Overview & Objectives
-
-### Purpose
-Frame the rationale behind the work so the reader understands why it was built.
-
-### Section Breakdown
-1. **Problem / Motivation:**
-   * *Academic:* State the research gap, unanswered question, or limitation of previous studies.
-   * *Creative:* State the creative brief, thematic catalyst, or user problem being solved.
-2. **Scope:**
-   * Detail boundary lines: what was built, what format it takes, and what was intentionally excluded.
-3. **Core Takeaways:**
-   * Summarize the primary empirical discovery, benchmark result, or creative impact.
+<p align="center">
+  <em>Figure 2: mobile responsive showing focus states.</em>
+</p>
 
 ---
 
-## 4. Method & Architecture
+## <span style="display: flex; gap: 8px;"><img src="./assets/images/icons/feature-icon.png"> Features
 
-### Purpose
-Explain the technical workflow, design system, or experimental methodology.
+* **Semantic Web Structure:** Built entirely with native HTML5 semantic tags (`header`, `nav`, `main`, `section`, `article`, `footer`), as well as aria-label to ensure accessibility and clear document hierarchy
+* **Responsive Layout:** Fluid layouts implemented using CSS Flexbox and media queries to adapt cleanly between mobile devices, tablets, and desktop displays
+* **Styling & Visual Identity:** Cohesive color palette and typography centered around personal design choices, utilizing CSS custom properties (variables) for consistent maintenance
+* **Extra:** Focus States in orange
+---
 
-### Academic Guidance
-* Describe dataset curation, preprocessing steps, statistical models, validation techniques, and baseline comparisons.
-* Focus on reproducibility and methodological rigor.
+## <span style="display: flex; gap: 8px;"><img src="./assets/images/icons/wrench-icon.png"> 5. Tools & Technologies
 
-### Creative Guidance
-* Outline the design phases (e.g., moodboarding, wireframing, component tokenization, production).
-* Focus on visual hierarchy, aesthetic choices, user flow, or interaction mechanics.
-
-### Deliverables Breakdown
-* Highlight 2 to 4 tangible outcomes (e.g., *Interactive Web App*, *Statistical Notebook*, *Design System Kit*, *Trained Weights*).
+| Category | Tools / Frameworks |
+| :--- | :--- |
+| **Markup & Semantics** | HTML5 (Semantic Elements, ARIA Attributes) |
+| **Styling & Layout** | CSS3 (Flexbox, CSS Variables, Media Queries, Focus States) |
+| **Design & Assets** | [Figma](https://www.figma.com/design/cKmA01QadQI2HPQhdcaH5H/portifolio23?node-id=0-1&p=f&t=pVNOAur8NRrnLEsz-0), [Google Fonts](https://fonts.google.com/specimen/Courier+Prime) |
+| **Version Control & Collaboration** | [Git, GitHub](https://github.com/dev-corvus)|
+| **Code Editor** | Visual Studio Code |
+|  **Deployment & Build Tools:** | [GitHub Pages](https://dev-corvus.github.io/portfolio) |
 
 ---
 
-## 5. Tools & Technologies
+## <span style="display: flex; gap: 8px;"><img src="./assets/images/icons/folder-icon.png"> 6. Project Structure
 
-### Purpose
-Quick reference table for recruiters or collaborators reviewing your technical stack.
-
-### Recommended Categories
-* **Design & Prototyping:** Figma, Adobe CC, Blender, Procreate.
-* **Development & Frameworks:** Python, React, Next.js, PyTorch, Tailwind CSS.
-* **Research & Analysis:** R, pandas, SciPy, Jupyter, Zotero.
-* **Deployment & Build Tools:** Vercel, GitHub Actions, Docker, Netlify.
-
----
-
-## 6. Project Structure
-
-### Purpose
-Helps visitors navigate the directory layout without guessing where scripts, papers, or assets live.
-
-### Standard Template
 ```text
-├── assets/             # Screenshots, renders, figures, fonts
-├── data/               # Raw/cleaned data files or input text
-├── docs/               # Research write-ups, briefs, notes
-├── src/                # Implementation code, styles, notebooks
-└── README.md           # Project documentation
+├── assets/
+│   ├── images
+|   |      └── icons
+├── index.html
+├── style.css
+└── README.md
 ```
 
 ---
 
-## 7. Reflection & Retrospective
+## <span style="display: flex; gap: 8px;"><img src="./assets/images/icons/book-icon.png"> 7. Reflection & Retrospective
 
 This section turns a generic project into a compelling case study.
 
 ### What I Learnt
 * **Technical / Domain Knowledge:**
   * Did you learn a new library, algorithm, statistical method, or design technique?
-  * *Example (Academic):* "Gained proficiency in adjusting for multi-class imbalance using focal loss rather than standard cross-entropy."
-  * *Example (Creative):* "Learned how to design variable font axes to dynamically adjust legibility based on container width."
+  * *nth-child* - 
+  * *object-fit: cover* - 
+  * *clamp* - 
+  * *CSS Animation:* @keyframes & [animate.css](https://animate.style/)
+  * *Focus States* - focus-visible, focus-within
+  * *Block* - 
+  * *Position* - relative, absolute
+  * *scroll-behavior: smooth !important* - 
 * **Process & Workflow:**
-  * What did you discover about your own planning, version control, or execution speed?
+  * improved commits: smaller features, better naming and targeting individual files when commiting
 
 ### What I Would Have Done Differently
 * **Architecture & Scoping:**
-  * Where did you spend too much time? Which premature design or technical decisions created bottlenecks?
+  * responsive design: review clamp and character limit for responsiveness, and use cases
+  * groupped classes: instead of groupping them at the end, could've thought about implementing it earlier 
 * **Alternative Approaches:**
-  * If starting fresh today, what tool, model, or layout strategy would you use instead?
+  * should've added nth-child for even numbers to change the background colour of each section
+  * refine figma then start coding 
+  * define css variables beforehand 
 * **Future Iterations:**
-  * Mention clear, prioritized next steps (e.g., adding accessibility audits, testing on an external dataset, introducing responsive mobile breakpoints).
+  * model cards for projects descriptions
+  * button to toggle english/spanish & german translations
+  * hamburger menu for mobile
 
 ---
 
-## 8. Resources Used
+## <span style="display: flex; gap: 8px;"><img src="./assets/images/icons/bookmark-icon.png"> 9. Acknowledgements
+* Serasa Experian + Instituto PROA: For creating and supporting the educational program. Hats off to Mago da Silva.
 
-### Academic References
-* Cited journal articles, conference papers, preprints, or official datasets (include DOIs or direct URLs).
+---
 
-### Technical & Creative Resources
-* Specific documentation pages, open-source libraries, UI asset kits, or reference tutorials that directly unblocked your progress.
+## <span style="display: flex; gap: 8px;"><img src="./assets/images/icons/person-icon.png"> Author
+[![LinkedIn](https://custom-icon-badges.demolab.com/badge/linkedin-0A66C2?logo=linkedin-white&logoColor=fff)](linkedin.com/in/lexkawa/)
+
+[![GitHub Pages](https://img.shields.io/badge/github-%23121011.svg?logo=github&logoColor=white)](https://github.com/dev-corvus/)
